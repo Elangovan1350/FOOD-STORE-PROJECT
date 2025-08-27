@@ -20,8 +20,11 @@ tl1.to(".gift", {
   duration: 0.5,
   ease: "power1.inOut(1.7 , 0.3)",
 });
+
 gsap.set(".wholePage", { display: "none" });
+
 const tl2 = gsap.timeline();
+gsap.set(".transition-box", { rotate: 180 });
 tl2.from(".transition-box", {
   y: "-60dvh",
   duration: 1,
@@ -29,6 +32,11 @@ tl2.from(".transition-box", {
 });
 tl2.to(".transition-box", {
   y: "38dvh",
+  ease: "elastic.out(0.9, 0.7)",
+  duration: 1,
+});
+tl2.to(".transition-box", {
+  rotate: 0,
   ease: "elastic.out(0.9, 0.7)",
   duration: 1,
 });
@@ -44,7 +52,7 @@ tl2.to(
     ease: "power1.inOut",
     duration: 1,
     onComplete: () => {
-      gsap.set("transition-container", { display: "none" });
+      gsap.set("transition-container", { display: "absolute", top: "-100vh" });
       gsap.set(".wholePage", { display: "block" });
 
       gsap.from(".followBox", {
@@ -60,10 +68,10 @@ tl2.to(
         stagger: 0.2,
         overflowX: "hidden",
         onStart: () => {
-          gsap.set("svg", { opacity: 0 });
+          gsap.set(".follow", { opacity: 0 });
         },
         onComplete: () => {
-          gsap.set("svg", { opacity: 1 });
+          gsap.set(".follow", { opacity: 1 });
           gsap.from(".svgAnimate", {
             drawSVG: 0,
             duration: 1,
@@ -77,3 +85,9 @@ tl2.to(
   },
   "<-0.5"
 );
+
+tl2.from(".navbar1", {
+  y: "-10dvh",
+  duration: 1,
+  ease: "elastic.out(0.9, 0.7)",
+});

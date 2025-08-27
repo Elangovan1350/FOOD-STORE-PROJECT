@@ -10,7 +10,7 @@
   <body class="text-[roboto]">
     <!-- transition animation start here -->
     <div
-      class="transition-container bg-black absolute top-0 left-0 w-full h-full z-50 flex justify-center items-center"
+      class="transition-container bg-gradient-to-t from-yellow-600 to-orange-300 absolute top-0 left-0 w-full h-full z-[100] flex justify-center items-center"
     >
       <div class="transition-box">
         <svg
@@ -32,11 +32,60 @@
       </div>
     </div>
     <!-- transition animation end here -->
+    <!-- navbar start here -->
+    <nav class="sticky top-0 h-[10dvh] bg-white z-50 text-[2.5dvh]">
+      <div class="navbar1 2xl:container 2xl:mx-auto h-full">
+        <div
+          class="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-5 items-center h-full"
+        >
+          <div class="md:col-span-1 flex justify-between items-center">
+            <a href="#">
+              <img
+                class="h-[7dvh]"
+                src="https://ik.imagekit.io/elo1350/food-munch-img.png?updatedAt=1755879754577"
+                alt="food much"
+              />
+            </a>
+
+            <div class="md:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-menu-icon lucide-menu"
+              >
+                <path d="M4 12h16" />
+                <path d="M4 18h16" />
+                <path d="M4 6h16" />
+              </svg>
+            </div>
+          </div>
+          <div class="md:col-span-4 hidden md:block">
+            <ul class="flex justify-end items-center gap-3 text-[#5a7184]">
+              <li><a href="">Why Choose Us</a></li>
+
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Fresh Food</a></li>
+              <li><a href="#">Payment</a></li>
+              <li><a href="#">Gift</a></li>
+              <li><a href="#">Social Media</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- navbar end here -->
 
     <!-- hero section start here -->
-    <header>
+    <header class="h-[90dvh]">
       <div
-        class="2xl:container 2xl:mx-auto bg-[url('https://ik.imagekit.io/elo1350/foodmunch-banner-bg.jpg?updatedAt=1756051789035')] h-dvh bg-cover"
+        class="2xl:container 2xl:mx-auto bg-[url('https://ik.imagekit.io/elo1350/foodmunch-banner-bg.jpg?updatedAt=1756051789035')] h-full bg-cover"
       >
         <div
           class="w-[80%] mx-auto grid grid-cols-1 h-full text-white text-center font-[roboto]"
@@ -625,7 +674,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-instagram-icon lucide-instagram"
+                  class="follow lucide lucide-instagram-icon lucide-instagram"
                 >
                   <rect
                     class="svgAnimate"
@@ -663,7 +712,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-youtube-icon lucide-youtube"
+                  class="follow lucide lucide-youtube-icon lucide-youtube"
                 >
                   <path
                     class="svgAnimate"
@@ -685,7 +734,7 @@
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  class="lucide lucide-facebook-icon lucide-facebook"
+                  class="follow lucide lucide-facebook-icon lucide-facebook"
                 >
                   <path
                     class="svgAnimate"
