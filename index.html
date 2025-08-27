@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FOOD STORE PROJECT</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="text-[roboto]">
+  <body class="text-[roboto] overflow-x-hidden">
     <!-- hero section start here -->
     <header>
       <div
@@ -520,7 +521,7 @@
             <button class="py-3 px-5 bg-[#C4A901] text-white rounded-xl">
               Order Now
             </button>
-            <div class="grid grid-cols-4 w-[40%] gap-3 items-center">
+            <div class="grid grid-cols-4 w-[50%] md:w-[40%] gap-3 items-center">
               <img
                 src="https://ik.imagekit.io/elo1350/visa-card-img.png?updatedAt=1755880307583"
                 alt="visa"
@@ -584,7 +585,7 @@
           <h1 class="text-[24px] text-[#183b56] leading-[38px]">Follow Us</h1>
           <div class="flex gap-5">
             <!-- instagram svg -->
-            <div class="p-4 rounded-full bg-[#EFCE69]">
+            <div class="p-4 rounded-full bg-[#EFCE69] followBox">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -597,15 +598,32 @@
                 stroke-linejoin="round"
                 class="lucide lucide-instagram-icon lucide-instagram"
               >
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                <rect
+                  class="svgAnimate"
+                  width="20"
+                  height="20"
+                  x="2"
+                  y="2"
+                  rx="5"
+                  ry="5"
+                />
+                <path
+                  class="svgAnimate"
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                />
+                <line
+                  class="svgAnimate"
+                  x1="17.5"
+                  x2="17.51"
+                  y1="6.5"
+                  y2="6.5"
+                />
               </svg>
             </div>
             <!-- instagram svg end -->
 
             <!-- youtube svg -->
-            <div class="p-4 rounded-full bg-[#EFCE69]">
+            <div class="followBox p-4 rounded-full bg-[#EFCE69]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -619,14 +637,15 @@
                 class="lucide lucide-youtube-icon lucide-youtube"
               >
                 <path
+                  class="svgAnimate"
                   d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
                 />
-                <path d="m10 15 5-3-5-3z" />
+                <path class="svgAnimate" d="m10 15 5-3-5-3z" />
               </svg>
             </div>
             <!-- youtube svg end -->
             <!-- facebook svg -->
-            <div class="p-4 rounded-full bg-[#EFCE69]">
+            <div class="followBox p-4 rounded-full bg-[#EFCE69]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="32"
@@ -640,6 +659,7 @@
                 class="lucide lucide-facebook-icon lucide-facebook"
               >
                 <path
+                  class="svgAnimate"
                   d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
                 />
               </svg>
@@ -675,4 +695,5 @@
     </footer>
     <!-- footer section end here -->
   </body>
+  <script src="app.js" type="module"></script>
 </html>
