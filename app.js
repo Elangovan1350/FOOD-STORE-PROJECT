@@ -23,12 +23,12 @@ tl1.to(".gift", {
 gsap.set(".wholePage", { display: "none" });
 const tl2 = gsap.timeline();
 tl2.from(".transition-box", {
-  y: "-60vh",
+  y: "-60dvh",
   duration: 1,
   ease: "elastic.out(0.9, 0.7)",
 });
 tl2.to(".transition-box", {
-  y: "40vh",
+  y: "38dvh",
   ease: "elastic.out(0.9, 0.7)",
   duration: 1,
 });
