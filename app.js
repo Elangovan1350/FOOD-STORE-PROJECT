@@ -124,29 +124,29 @@ tl2.from(".navbar1", {
   ease: "elastic.out(0.9, 0.7)",
 });
 
-bottonAll.forEach((ele) => {
-  ele.addEventListener("mouseover", () => {
-    gsap.to(ele, {
-      scale: 1.1,
-      duration: 0.2,
-    });
-  });
-  ele.addEventListener("mouseout", () => {
-    gsap.to(ele, {
-      scale: 1,
-      duration: 0.2,
-    });
-  });
-  ele.addEventListener("mousedown", () => {
-    gsap.to(ele, {
-      scale: 0.9,
-      duration: 0.1,
-    });
-  });
-  ele.addEventListener("mouseup", () => {
-    gsap.to(ele, {
-      scale: 1,
-      duration: 0.1,
-    });
-  });
-});
+// bottonAll.forEach((ele) => {
+//   ele.addEventListener("mouseover", () => {
+//     gsap.to(ele, {
+//       scale: 1.1,
+//       duration: 0.2,
+//     });
+//   });
+//   ele.addEventListener("mouseout", () => {
+//     gsap.to(ele, {
+//       scale: 1,
+//       duration: 0.2,
+//     });
+//   });
+//   ele.addEventListener("mousedown", () => {
+//     gsap.to(ele, {
+//       scale: 0.9,
+//       duration: 0.1,
+//     });
+//   });
+//   ele.addEventListener("mouseup", () => {
+//     gsap.to(ele, {
+//       scale: 1,
+//       duration: 0.1,
+//     });
+//   });
+// });
