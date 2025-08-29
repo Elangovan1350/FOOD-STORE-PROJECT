@@ -2,9 +2,53 @@ import { gsap } from "gsap";
 
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { CustomEase } from "gsap/CustomEase";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, customElements);
+gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, ScrollSmoother);
+
+// create the scrollSmoother before your scrollTriggers
+let smooth = ScrollSmoother.create({
+  smooth: 2, // how long (in seconds) it takes to "catch up" to the native scroll position
+  effects: true, // looks for data-speed and data-lag attributes on elements
+  smoothTouch: 0.1,
+  // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+});
+
+let link = [
+  {
+    atag: "#whyUs",
+    content: "#whyChooseUs",
+  },
+  {
+    atag: "#menu",
+    content: "#exploreMenu",
+  },
+  {
+    atag: "#food",
+    content: "#freshFood",
+  },
+  {
+    atag: "#pay",
+    content: "#payment",
+  },
+  {
+    atag: "#gift",
+    content: "#giftBox",
+  },
+  {
+    atag: "#fellow",
+    content: "#followUs",
+  },
+];
+
+{
+  link.map((e) => {
+    document.querySelector(e.atag).addEventListener("click", (element) => {
+      smooth.scrollTo(e.content, 1, "-10%");
+      element.preventDefault();
+    });
+  });
+}
 
 const bottonAll = document.querySelectorAll("button");
 
@@ -82,7 +126,7 @@ tl2.to(
     ease: "power1.inOut",
     duration: 1,
     onComplete: () => {
-      gsap.set("transition-container", { display: "absolute", top: "-100vh" });
+      gsap.set(".transition-container", { display: "none" });
       gsap.set(".wholePage", { display: "block" });
 
       gsap.from(".followBox", {
@@ -124,29 +168,4 @@ tl2.from(".navbar1", {
   ease: "elastic.out(0.9, 0.7)",
 });
 
-// bottonAll.forEach((ele) => {
-//   ele.addEventListener("mouseover", () => {
-//     gsap.to(ele, {
-//       scale: 1.1,
-//       duration: 0.2,
-//     });
-//   });
-//   ele.addEventListener("mouseout", () => {
-//     gsap.to(ele, {
-//       scale: 1,
-//       duration: 0.2,
-//     });
-//   });
-//   ele.addEventListener("mousedown", () => {
-//     gsap.to(ele, {
-//       scale: 0.9,
-//       duration: 0.1,
-//     });
-//   });
-//   ele.addEventListener("mouseup", () => {
-//     gsap.to(ele, {
-//       scale: 1,
-//       duration: 0.1,
-//     });
-//   });
-// });
+// a tag animation
