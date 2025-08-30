@@ -6,13 +6,15 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { CustomEase } from "gsap/CustomEase";
 // CustomWiggle requires CustomEase
 import { CustomWiggle } from "gsap/CustomWiggle";
+import { GSDevTools } from "gsap/GSDevTools";
 
 gsap.registerPlugin(
   DrawSVGPlugin,
   ScrollTrigger,
   ScrollSmoother,
   CustomWiggle,
-  CustomEase
+  CustomEase,
+  GSDevTools
 );
 
 // create the scrollSmoother before your scrollTriggers
@@ -60,6 +62,7 @@ let link = [
     });
   });
 }
+// custom wiggle created here
 
 CustomWiggle.create("myWiggle", {
   wiggles: 5,
@@ -151,13 +154,13 @@ tl2.to(
         scrollTrigger: {
           trigger: ".followBox",
           start: "top 80%",
-          end: "bottom 20%",
+          end: "bottom 10%",
           toggleActions: "play reverse play reverse",
         },
-        x: "150vh",
+        x: "60vw",
         duration: 1.5,
-        ease: "elastic.out(0.9,1)",
-        stagger: 0.2,
+        ease: "back.out(1.75)",
+        stagger: 0.1,
         overflowX: "hidden",
         onStart: () => {
           gsap.set(".follow", { opacity: 0 });
@@ -167,7 +170,6 @@ tl2.to(
           gsap.from(".svgAnimate", {
             drawSVG: 0,
             duration: 1,
-
             ease: "power1.inOut",
             stagger: 0.2,
           });
@@ -186,3 +188,14 @@ tl2.from(".navbar1", {
   ease: "elastic.out(0.9, 0.7)",
   stagger: 0.2,
 });
+
+tl2.from(
+  ".atags",
+  {
+    y: "-10vh",
+    duration: 1,
+    ease: "elastic.out(0.9, 0.7)",
+    stagger: 0.2,
+  },
+  "-=1"
+);
