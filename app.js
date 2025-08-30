@@ -157,7 +157,7 @@ tl2.to(
           end: "bottom 10%",
           toggleActions: "play reverse play reverse",
         },
-        x: "60vw",
+        x: "100vw",
         duration: 1.5,
         ease: "back.out(1.75)",
         stagger: 0.1,
