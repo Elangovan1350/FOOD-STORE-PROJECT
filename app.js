@@ -3,8 +3,17 @@ import { gsap } from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { CustomEase } from "gsap/CustomEase";
+// CustomWiggle requires CustomEase
+import { CustomWiggle } from "gsap/CustomWiggle";
 
-gsap.registerPlugin(DrawSVGPlugin, ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(
+  DrawSVGPlugin,
+  ScrollTrigger,
+  ScrollSmoother,
+  CustomWiggle,
+  CustomEase
+);
 
 // create the scrollSmoother before your scrollTriggers
 let smooth = ScrollSmoother.create({
@@ -13,6 +22,8 @@ let smooth = ScrollSmoother.create({
   smoothTouch: 0.5,
   // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
 });
+
+// smooth slide for a tags
 
 let link = [
   {
@@ -50,22 +61,29 @@ let link = [
   });
 }
 
-const bottonAll = document.querySelectorAll("button");
-
-// image change animation
-const tl1 = gsap.timeline({ repeat: -1 });
-tl1.to(".gift", {
-  scale: 1.1,
-  yoyo: true,
-  duration: 0.5,
-
-  ease: "power1.inOut",
+CustomWiggle.create("myWiggle", {
+  wiggles: 5,
+  type: "easeInOut",
 });
-tl1.to(".gift", {
-  scale: 1,
+
+// gift change animation
+
+gsap.to(".gift", {
+  rotate: 3,
+  repeat: -1,
   yoyo: true,
-  duration: 0.5,
-  ease: "power1.inOut(1.7 , 0.3)",
+  duration: 1.5,
+  transformOrigin: "bottom",
+  ease: "myWiggle",
+});
+
+// patment change animation
+gsap.to([".foodImage", ".paymentImage"], {
+  scale: 1.1,
+  repeat: -1,
+  yoyo: true,
+  duration: 1,
+  ease: "power1.inOut",
 });
 
 //  transition animation
@@ -166,6 +184,5 @@ tl2.from(".navbar1", {
   y: "-10dvh",
   duration: 1,
   ease: "elastic.out(0.9, 0.7)",
+  stagger: 0.2,
 });
-
-// a tag animation
