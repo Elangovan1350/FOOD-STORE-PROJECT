@@ -255,7 +255,7 @@ var navOpen2;
 
 let mm = gsap.matchMedia();
 
-mm.add("(max-width:768px)", () => {
+mm.add("(max-width:768px)", (context) => {
   const menuId = document.getElementById("menuId");
 
   menuId.addEventListener("click", () => {
@@ -265,40 +265,47 @@ mm.add("(max-width:768px)", () => {
       animation = !animation;
       navOpen.reverse();
       navOpen2.reverse();
+      console.log("click", animation);
 
       return;
-    }
-    ani1 = gsap.to(".menu1", {
-      duration: 1,
-      morphSVG: ".x1",
-    });
-    ani2 = gsap.to(".menu2", {
-      duration: 1,
-      morphSVG: ".x2",
-    });
-    animation = !animation;
-    navOpen = gsap.fromTo(
-      "nav",
-      {
-        height: "10dvh",
-      },
-      {
-        height: "40dvh",
-      }
-    );
-    navOpen2 = gsap.fromTo(
-      ".navbarOpen",
-      {
-        y: "-40dvh",
-        display: "none",
+    } else {
+      ani1 = gsap.to(".menu1", {
         duration: 1,
-      },
-      {
-        y: 0,
-        display: "block",
-      }
-    );
+        morphSVG: ".x1",
+      });
+      ani2 = gsap.to(".menu2", {
+        duration: 1,
+        morphSVG: ".x2",
+      });
+      animation = !animation;
+      navOpen = gsap.fromTo(
+        "nav",
+        {
+          height: "10dvh",
+        },
+        {
+          height: "40dvh",
+        }
+      );
+      console.log("click", animation);
+
+      navOpen2 = gsap.fromTo(
+        ".navbarOpen",
+        {
+          y: "-40dvh",
+          display: "none",
+          duration: 1,
+        },
+        {
+          y: 0,
+          display: "block",
+        }
+      );
+    }
   });
+  return () => {
+    context.revert();
+  };
 });
 
 mm.add("(min-width:768px)", () => {
