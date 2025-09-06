@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
+
 import { CustomEase } from "gsap/CustomEase";
 // CustomWiggle requires CustomEase
 import { CustomWiggle } from "gsap/CustomWiggle";
@@ -14,7 +16,8 @@ gsap.registerPlugin(
   ScrollSmoother,
   CustomWiggle,
   CustomEase,
-  GSDevTools
+  GSDevTools,
+  MorphSVGPlugin
 );
 
 // create the scrollSmoother before your scrollTriggers
@@ -199,3 +202,111 @@ tl2.from(
   },
   "-=1"
 );
+
+var ani1;
+var ani2;
+var animation = false;
+var navOpen;
+var navOpen2;
+
+// const menuId = document.getElementById("menuId");
+
+// menuId.addEventListener("click", () => {
+//   if (animation) {
+//     ani1.reverse();
+//     ani2.reverse();
+//     animation = !animation;
+//     navOpen.reverse();
+//     navOpen2.reverse();
+
+//     return;
+//   }
+//   ani1 = gsap.to(".menu1", {
+//     duration: 1,
+//     morphSVG: ".x1",
+//   });
+//   ani2 = gsap.to(".menu2", {
+//     duration: 1,
+//     morphSVG: ".x2",
+//   });
+//   animation = !animation;
+//   navOpen = gsap.fromTo(
+//     "nav",
+//     {
+//       height: "10dvh",
+//     },
+//     {
+//       height: "40dvh",
+//     }
+//   );
+//   navOpen2 = gsap.fromTo(
+//     ".navbarOpen",
+//     {
+//       y: "-40dvh",
+//       display: "none",
+//       duration: 1,
+//     },
+//     {
+//       y: 0,
+//       display: "block",
+//     }
+//   );
+// });
+
+let mm = gsap.matchMedia();
+
+mm.add("(max-width:768px)", () => {
+  const menuId = document.getElementById("menuId");
+
+  menuId.addEventListener("click", () => {
+    if (animation) {
+      ani1.reverse();
+      ani2.reverse();
+      animation = !animation;
+      navOpen.reverse();
+      navOpen2.reverse();
+
+      return;
+    }
+    ani1 = gsap.to(".menu1", {
+      duration: 1,
+      morphSVG: ".x1",
+    });
+    ani2 = gsap.to(".menu2", {
+      duration: 1,
+      morphSVG: ".x2",
+    });
+    animation = !animation;
+    navOpen = gsap.fromTo(
+      "nav",
+      {
+        height: "10dvh",
+      },
+      {
+        height: "40dvh",
+      }
+    );
+    navOpen2 = gsap.fromTo(
+      ".navbarOpen",
+      {
+        y: "-40dvh",
+        display: "none",
+        duration: 1,
+      },
+      {
+        y: 0,
+        display: "block",
+      }
+    );
+  });
+});
+
+mm.add("(min-width:768px)", () => {
+  gsap.to(".navbarOpen", {
+    display: "block",
+    y: 0,
+  });
+  gsap.to("nav", {
+    height: "10dvh",
+  });
+});

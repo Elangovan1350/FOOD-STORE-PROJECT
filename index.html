@@ -44,8 +44,12 @@
     </div>
     <!-- transition animation end here -->
     <!-- navbar start here -->
-    <nav class="sticky top-0 h-[10dvh] bg-white z-50 text-[2.5dvh]">
-      <div class="2xl:container 2xl:mx-auto h-full">
+    <nav
+      class="sticky top-0 left-0 right-0 h-[10dvh] bg-white z-50 text-[2.5dvh]"
+    >
+      <div
+        class="2xl:container 2xl:mx-auto flex justify-center items-center h-full"
+      >
         <div
           class="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-5 items-center h-full"
         >
@@ -60,6 +64,7 @@
 
             <div class="md:hidden navbar1">
               <svg
+                id="menuId"
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
                 height="24"
@@ -71,17 +76,19 @@
                 stroke-linejoin="round"
                 class="lucide lucide-menu-icon lucide-menu"
               >
-                <path d="M4 12h16" />
-                <path d="M4 18h16" />
-                <path d="M4 6h16" />
+                <path class="menu1" d="M4 12h16" />
+                <path class="menu2" d="M4 18h16" />
+                <path class="menu2" d="M4 6h16" />
+                <path class="invisible x1" d="M18 6 6 18" />
+                <path class="invisible x2" d="m6 6 12 12" />
               </svg>
             </div>
           </div>
           <div
-            class="navbar1 md:col-span-4 hidden md:block text-sm lg:text-base xl:text-lg 2xl:text-2xl"
+            class="navbar1 navbarOpen md:translate-y-0 md:col-span-4 hidden md:block text-sm lg:text-base xl:text-lg 2xl:text-2xl"
           >
             <ul
-              class="flex justify-end items-center gap-3 lg:gap-5 2xl:gap-8 text-[#5a7184]"
+              class="flex flex-col md:flex-row justify-end items-center gap-3 lg:gap-5 2xl:gap-8 text-[#5a7184]"
             >
               <div class="atags">
                 <li
