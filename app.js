@@ -257,14 +257,14 @@ let mm = gsap.matchMedia();
 
 mm.add("(max-width:768px)", (context) => {
   const menuId = document.getElementById("menuId");
-
-  menuId.addEventListener("click", () => {
+  context.add("ano", () => {
     if (animation) {
       ani1.reverse();
       ani2.reverse();
-      animation = !animation;
       navOpen.reverse();
       navOpen2.reverse();
+      animation = !animation;
+
       console.log("click", animation);
 
       return;
@@ -278,6 +278,7 @@ mm.add("(max-width:768px)", (context) => {
         morphSVG: ".x2",
       });
       animation = !animation;
+
       navOpen = gsap.fromTo(
         "nav",
         {
@@ -296,15 +297,19 @@ mm.add("(max-width:768px)", (context) => {
           display: "none",
           duration: 1,
         },
+
         {
           y: 0,
           display: "block",
         }
       );
     }
+    return;
   });
+
+  menuId.addEventListener("click", context.ano);
   return () => {
-    context.revert();
+    menuId.removeEventListener("click", context.ano);
   };
 });
 
@@ -313,7 +318,5 @@ mm.add("(min-width:768px)", () => {
     display: "block",
     y: 0,
   });
-  gsap.to("nav", {
-    height: "10dvh",
-  });
+  animation = false;
 });
