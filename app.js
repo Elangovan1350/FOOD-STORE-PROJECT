@@ -185,23 +185,19 @@ tl2.to(
 
 // navbar animation
 
-tl2.from(".navbar1", {
-  y: "-10dvh",
-  duration: 1,
-  ease: "elastic.out(0.9, 0.7)",
-  stagger: 0.2,
-});
+// tl2.from(".navbar1", {
+//   y: "-10dvh",
+//   duration: 1,
+//   ease: "elastic.out(0.9, 0.7)",
+//   stagger: 0.2,
+// });
 
-tl2.from(
-  ".atags",
-  {
-    y: "-10vh",
-    duration: 1,
-    ease: "elastic.out(0.9, 0.7)",
-    stagger: 0.2,
-  },
-  "-=1"
-);
+// tl2.from(".atags", {
+//   y: "-10vh",
+//   duration: 1,
+//   ease: "elastic.out(0.9, 0.7)",
+//   stagger: 0.2,
+// });
 
 var ani1;
 var ani2;
@@ -254,9 +250,29 @@ var navOpen2;
 // });
 
 let mm = gsap.matchMedia();
+let animaAtags = false;
+let animaNavbar = false;
 
 mm.add("(max-width:768px)", (context) => {
   const menuId = document.getElementById("menuId");
+  animaAtags = true;
+  console.log(animaAtags);
+  if (animaNavbar) {
+    gsap.from(".navbar1", {
+      y: "-10dvh",
+      duration: 1,
+      ease: "elastic.out(0.9, 0.7)",
+      stagger: 0.2,
+    });
+  } else {
+    tl2.from(".navbar1", {
+      y: "-10dvh",
+      duration: 1,
+      ease: "elastic.out(0.9, 0.7)",
+      stagger: 0.2,
+    });
+  }
+
   context.add("ano", () => {
     if (animation) {
       ani1.reverse();
@@ -316,10 +332,37 @@ mm.add("(max-width:768px)", (context) => {
 });
 
 mm.add("(min-width:768px)", () => {
-  gsap.to(".navbarOpen", {
-    display: "block",
-    y: 0,
-  });
+  if (animaAtags) {
+    gsap.fromTo(
+      ".atags",
+      {
+        y: "-10dvh",
+      },
+      {
+        y: 0,
+        stagger: 0.2,
+      }
+    );
+  } else {
+    tl2.from(".navbar1", {
+      y: "-10dvh",
+      duration: 1,
+      ease: "elastic.out(0.9, 0.7)",
+      stagger: 0.2,
+    });
+    tl2.fromTo(
+      ".atags",
+      {
+        y: "-10dvh",
+      },
+      {
+        y: 0,
+        stagger: 0.2,
+      },
+      "-=1"
+    );
+  }
+  animaNavbar = true;
   animation = false;
   // gsap.to("nav", {
   //   height: "10dvh",
