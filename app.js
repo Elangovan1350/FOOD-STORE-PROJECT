@@ -289,7 +289,9 @@ mm.add("(max-width:768px)", (context) => {
         }
       );
       console.log("click", animation);
-
+      // gsap.to("nav", {
+      //   height: "40dvh",
+      // });
       navOpen2 = gsap.fromTo(
         ".navbarOpen",
         {
@@ -319,4 +321,7 @@ mm.add("(min-width:768px)", () => {
     y: 0,
   });
   animation = false;
+  // gsap.to("nav", {
+  //   height: "10dvh",
+  // });
 });
